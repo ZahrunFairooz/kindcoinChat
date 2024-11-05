@@ -88,7 +88,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className='border-r border-slate-500 p-4 flex flex-col'>
+    <div className='border-r border-slate-500 p-4 flex flex-col text-white'>
       <SearchInput onSearch={setUsers} />
       <div className='divider px-3'></div>
 
@@ -100,10 +100,9 @@ const Sidebar = () => {
             className={`btn ${selectedRole === role ? 'btn-active' : ''}`}
             onClick={() => handleRoleClick(role)}
             disabled={
-              (loggedInUserRole === "recipient" && (role === "admin" || role === "recipient")) ||
-              (loggedInUserRole === "donator" && (role === "admin" || role === "donator")) ||
-              (loggedInUserRole === "crew_member" && role === "admin")
-            } // Disable buttons based on the logged-in user role
+              (loggedInUserRole === "recipient" && (role === "recipient")) ||
+              (loggedInUserRole === "donator" && (role === "donator")) 
+            }
           >
             {role.charAt(0).toUpperCase() + role.slice(1)}s
           </button>
@@ -124,7 +123,7 @@ const Sidebar = () => {
             {users.map((user) => (
               <li
                 key={user._id}
-                className='py-2 px-3 hover:bg-gray-200 cursor-pointer'
+                className='py-2 px-3 hover:bg-gray-20 cursor-pointer'
                 onClick={() => handleUserClick(user)}
               >
                 {user.fullName}

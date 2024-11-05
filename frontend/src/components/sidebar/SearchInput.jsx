@@ -27,9 +27,9 @@ const SearchInput = () => {
       const filtered = users.filter(user => 
         user.fullName.toLowerCase().includes(search.toLowerCase())
       );
-      setFilteredUsers(filtered); // Set filtered users based on search
+      setFilteredUsers(filtered);
     } else {
-      setFilteredUsers([]); // Reset filtered users if search is empty
+      setFilteredUsers([]);
     }
   }, [search, users]);
 
@@ -39,8 +39,8 @@ const SearchInput = () => {
       fullName: user.fullName,
       profilePic: user.profilePic,
     };
-    setSelectedConversation(conversation); // Update selected conversation in Zustand
-    setSearch(""); // Reset search input after selection
+    setSelectedConversation(conversation); 
+    setSearch("");
   };
 
   return (
@@ -65,7 +65,7 @@ const SearchInput = () => {
             <li
               key={user._id}
               className='py-2 px-3 hover:bg-gray-200 cursor-pointer'
-              onClick={() => handleUserClick(user)} // Select user on click
+              onClick={() => handleUserClick(user)} 
             >
               {user.fullName} ({user.role}) {/* Display user role alongside name */}
             </li>
